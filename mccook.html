@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <title>McCook Chamber of Commerce - AS Designs Internship</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/your-font-kit-id.css" />
+  <style>
+    .carousel {
+      position: relative;
+      max-width: 600px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .carousel img {
+      width: 100%;
+      display: none;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .carousel-controls {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .carousel-controls button {
+      padding: 5px 10px;
+      margin: 0 5px;
+      cursor: pointer;
+      border: none;
+      background-color: #6E837E;
+      color: white;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <div class="header-container">
+    <img src="images/AMS Logo.svg" alt="AS Designs Logo" class="logo" />
+    <h1>Internship Presentation</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="mccook.html">McCook Chamber of Commerce</a></li>
+      <li><a href="hospital.html">Community Hospital</a></li>
+      <li><a href="about.html">About Me</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <section>
+      <h2>McCook Chamber of Commerce Projects</h2>
+      <p>During my internship, I created promotional materials, event graphics, and social media content for the McCook Chamber of Commerce. My designs aimed to promote community engagement and local businesses.</p>
+    </section>
+
+    <section class="carousel">
+      <img src="images/chimage4.jpg" class="active" alt="Explore McCook App Business Cards">
+      <img src="images/chimage1.jpg" alt="Rack Card, Advertisement, and Window Cling">
+      <img src="images/chimage2.jpg" alt="Poster">
+	  <img src="images/chimage3.jpg" alt="Coasters">
+    </section>
+
+    <div class="carousel-controls">
+      <button onclick="prevImage('mccook')">Previous</button>
+      <button onclick="nextImage('mccook')">Next</button>
+    </div>
+	  <div class="home-button-container">
+  <a href="index.html" class="home-button">Back to Home</a>
+</div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AS Designs</p>
+  </footer>
+
+  <script>
+    let mccookIndex = 0;
+    const mccookImages = document.querySelectorAll('.carousel img');
+
+    function showMccookImage(index) {
+      mccookImages.forEach(img => img.classList.remove('active'));
+      mccookImages[index].classList.add('active');
+    }
+
+    function nextImage(carousel) {
+      if (carousel === 'mccook') {
+        mccookIndex = (mccookIndex + 1) % mccookImages.length;
+        showMccookImage(mccookIndex);
+      }
+    }
+
+    function prevImage(carousel) {
+      if (carousel === 'mccook') {
+        mccookIndex = (mccookIndex - 1 + mccookImages.length) % mccookImages.length;
+        showMccookImage(mccookIndex);
+      }
+    }
+  </script>
+</body>
+</html>

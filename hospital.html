@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Community Hospital - AS Designs Internship</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/your-font-kit-id.css" />
+  <style>
+    .carousel {
+      position: relative;
+      max-width: 600px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .carousel img {
+      width: 100%;
+      display: none;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .carousel-controls {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .carousel-controls button {
+      padding: 5px 10px;
+      margin: 0 5px;
+      cursor: pointer;
+      border: none;
+      background-color: #6E837E;
+      color: white;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <div class="header-container">
+    <img src="images/AMS Logo.svg" alt="AS Designs Logo" class="logo" />
+    <h1>Internship Presentation</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="mccook.html">McCook Chamber of Commerce</a></li>
+      <li><a href="hospital.html">Community Hospital</a></li>
+      <li><a href="about.html">About Me</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <section>
+      <h2>Community Hospital Projects</h2>
+      <p>At Community Hospital, I worked on patient information brochures, healthcare awareness campaigns, and internal communication materials, ensuring designs were professional, accessible, and patient-focused.</p>
+    </section>
+
+    <section class="carousel">
+      <img src="images/ch5.png" class="active" alt="Community Connect">
+      <img src="images/ch6.png" alt="Community Foundation Project">
+      <img src="images/ch7.png" alt="Eat Smart - Get Fit">
+	  <img src="images/ch8.png" alt="Your Lungs Matter">
+    </section>
+
+    <div class="carousel-controls">
+      <button onclick="prevImage('hospital')">Previous</button>
+      <button onclick="nextImage('hospital')">Next</button>
+    </div>
+	  <div class="home-button-container">
+  <a href="index.html" class="home-button">Back to Home</a>
+</div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AS Designs</p>
+  </footer>
+
+  <script>
+    let hospitalIndex = 0;
+    const hospitalImages = document.querySelectorAll('.carousel img');
+
+    function showHospitalImage(index) {
+      hospitalImages.forEach(img => img.classList.remove('active'));
+      hospitalImages[index].classList.add('active');
+    }
+
+    function nextImage(carousel) {
+      if (carousel === 'hospital') {
+        hospitalIndex = (hospitalIndex + 1) % hospitalImages.length;
+        showHospitalImage(hospitalIndex);
+      }
+    }
+
+    function prevImage(carousel) {
+      if (carousel === 'hospital') {
+        hospitalIndex = (hospitalIndex - 1 + hospitalImages.length) % hospitalImages.length;
+        showHospitalImage(hospitalIndex);
+      }
+    }
+  </script>
+</body>
+</html>
